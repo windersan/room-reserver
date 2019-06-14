@@ -1,0 +1,73 @@
+
+
+<!DOCTYPE html>
+<html>
+  
+  <head>
+
+	  <title>DTC NOLA - Reserve A Room</title>
+	  <link rel="stylesheet" type="text/css" href="./style.css">
+	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-light">
+        <a class="navbar-brand dxc-nav-logo" href="room-req-form-14.html"><img src="./assets/dxc_logo_hz_blk_rgb.png" width="340" class="d-inline-block align-top" alt=""></a>
+     
+    </nav>
+
+    <main style="margin: 1em">
+
+      <h2 id="confirmation_num"></h2>
+      <br>
+
+      <h3>Status: Reserved</h3>
+      <h3 id="room"></h3>
+      <h3 id="start"></h3>
+      <h3 id="finish"></h3>
+      <h3 id="comment"></h3>
+      <br>
+
+      <h3 id="name"></h3>
+      <h3 id="email">E-mail: </h3>
+      <h3 id="employee_id">Employee ID: </h3>
+      <br>
+
+    </main>
+
+  </body>
+  <script>
+
+    let confirmation_num = Math.floor(Math.random() * 1001);  
+    document.getElementById("confirmation_num").innerHTML = "Confirmation #" + confirmation_num;
+
+    let room = localStorage.getItem('room');
+    document.getElementById("room").innerHTML = "Room: " + room;
+
+    let start = localStorage.getItem('start');
+    document.getElementById("start").innerHTML = "Check in: " + start;
+
+    let finish = localStorage.getItem('finish');
+    document.getElementById("finish").innerHTML = "Check out: " + finish;
+
+    let comment = localStorage.getItem('comment');
+    document.getElementById("comment").innerHTML = "Special Request/Comments: " + comment;
+    
+    let first_name = localStorage.getItem('first_name');
+    let last_name = localStorage.getItem('last_name');
+    document.getElementById("name").innerHTML = "Name: " + first_name + " " + last_name;
+  
+    let email = localStorage.getItem('email');
+    document.getElementById("email").innerHTML = "E-mail: " + email;
+
+    let employee_id = localStorage.getItem('employee_id');
+    document.getElementById("employee_id").innerHTML = "Employee ID: " + employee_id;
+
+
+
+  </script>
+
+</html>

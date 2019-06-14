@@ -1,0 +1,179 @@
+@font-face {
+	font-family: "GT-Walsheim-Pro";
+	src: url("./fonts/GT-Walsheim-Pro-Light.otf");
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "GT-Walsheim-Pro";
+	src: url("./fonts/GT-Walsheim-Pro-Regular.otf");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "GT-Walsheim-Pro";
+	src: url("./fonts/GT-Walsheim-Pro-Bold.otf");
+	font-weight: 700;
+}
+
+body,html {
+  height: 100%;
+}
+
+body {
+  font-family: "GT-Walsheim-Pro", Arial, sans-serif !important;
+  font-weight: 300;
+}
+
+p {
+	font-family: "GT-Walsheim-Pro", Arial, sans-serif !important;
+	font-weight: 300;
+}
+
+.dxc-nav-logo{
+	margin-left: 50px;
+}
+
+.nav-top-title {
+	font-size: 60px;
+	color: #000;
+}
+
+.navbar {
+	border-bottom: 2px solid #707070;
+	/*background-color: #fff;*/
+}
+
+.container-50 {
+	padding: 0px 50px 50px 50px;
+}
+
+#room-list {
+	margin-top: 20px;
+}
+
+.room-time-block {
+	height: 350px;
+  	overflow-y: scroll;
+}
+
+.room-time-block p{
+	font-size: 14px;
+	padding: 7px;
+	background-color: #F5F5F5;
+}
+
+.room-time-block a,
+.room-time-block a:hover {
+	color: #000;
+	text-decoration: none;
+}
+
+.room-title {
+	font-size: 20px;
+	margin: 0px;
+	color: #000;
+}
+
+.border-thick {
+	border-width: 2px !important;
+	border-radius: 0px !important;
+}
+
+.floor-title {
+	font-size: 50px;
+}
+
+.floor-sub {
+	font-size: 40px;
+}
+
+.font-140 {
+	font-size: 140px;
+}
+
+/* home page */
+
+.bg-yellow {
+	background-color: #FFED00;
+}
+
+.floor-map-bg{
+    background-image: url(./assets/14th_floor_map.png);
+    background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+}
+
+.height-1 {
+	height: 1080px;
+}
+
+.bg-black-transparent {
+    background-color: rgba(0,0,0,0.50);
+ }
+
+.bg-yellow-transparent {
+   background-color:rgba(255,255,0,0.50);
+}
+
+.homepage-padding {
+	padding-bottom: 120px;
+}
+
+.center-div {
+ 	display: block;
+ 	position: fixed;
+ 	top: 0;
+ 	left: 0;
+ 	z-index: 1050;
+ 	width: 100%;
+ 	overflow: hidden;
+ 	outline: 0;
+}
+
+.center-img {
+	width: 500px;
+	height: 500px;
+	background-image: url(./assets/dxc-logo.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+
+/* request room form */
+
+.border-radius-zero {
+	border-radius: 0px !important;
+}
+
+.req-room-form .form-control, .employee-info .form-control {
+	border-radius: 0px !important;
+}
+
+.btn-form {
+    text-align: center !important;
+    background-color: #ffed00 !important;
+    width: 100%;
+}
+
+/* employee confirmation page*/
+
+.employee-verify-video {
+	width: 100%;
+	height: 500px;
+	border: 2px solid #000;
+}
+
+.employee-verify-photo {
+	width: 450px;
+	height: 500px;
+	border: 2px solid #000;
+}
+
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DTC NOLA - Reserve A Room</title>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+
+	<script>
+
+		
+		function myFunction() {
+  
+		  let inputStartDate =   document.getElementById("inputStartDate").value.toString(); 
+		  if(inputStartDate) localStorage.setItem("inputStartDate", inputStartDate);
+  
+		  let inputEndDate =   document.getElementById("inputEndDate").value.toString(); 
+		  if(inputEndDate) localStorage.setItem("inputEndDate", inputEndDate);
+  
+		  let requirement =   document.getElementById("reqList").value.toString(); 
+		  if(requirement) localStorage.setItem("requirement", requirement);
+
+		  let capacityMin =   document.getElementById("capacityMin").value.toString(); 
+		  if(capacityMin) localStorage.setItem("capacityMin", capacityMin);
+
+		  let capacityMax =   document.getElementById("capacityMax").value.toString(); 
+		  if(capacityMax) localStorage.setItem("capacityMax", capacityMax);
+  
+		  console.log(inputStartDate + " : " + inputEndDate + " : " + requirement + " : " + capacityMin + " : " + capacityMax);
+		}
+	</script>
+
+</head>
+<body>
+	<nav class="navbar navbar-light bg-white">
+  		<a class="navbar-brand dxc-nav-logo flex-fill" href="room-req-form-14.html"><img src="./assets/dxc_logo_hz_blk_rgb.png" width="340" class="d-inline-block align-top" alt=""></a>
+  	
+  		<div class="d-flex flex-fill"><!--spacer--> </div>
+	</nav>
+	<div class="container-50 h-100">
+		<div class="container-fluid h-100">
+			<div class="row h-100">
+				<!-- floor map -->
+				<div class="col-9 floor-map-bg">
+				</div>
+				<!-- Form Side -->
+				<div class="col-3">
+					<span class="floor-sub"><b>Reserve room on</b></span><br>
+					<span class="floor-title"><b>Floor 14</b></span><br>
+
+					<!-- Form  -->
+					<form action="room-times-14th.html" onsubmit="myFunction()" class="req-room-form">
+						<div class="form-group">
+							<label for="date">Date</label>
+							<input type="date" class="form-control" id="inputStartDate" aria-describedby="dateTo" placeholder="Start">
+							<small id="dateTo" class="form-text text-muted">to</small>
+							<input type="date" class="form-control" id="inputEndDate" placeholder="End">
+						</div>
+
+						<div class="form-group">
+							<label for="capacity">Capacity</label>
+							<div class="form-row">
+								<div class="col">
+									<input type="text" class="form-control" id="capacityMin" placeholder="Min">
+								</div>
+
+								<div class="col">
+									<input type="text" class="form-control" id="capacityMax" placeholder="Max">
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="requirements">Room Requirements</label>
+							<select class="form-control" id="reqList">
+								<option></option>
+								<option>Wifi TV</option>
+								<option>Conference Phone</option>
+								<option>White Board</option>
+							</select>
+						</div>
+
+						<button class="btn-form btn border-radius-zero" type="submit"><b>View Available Rooms</b></button>
+
+					</form>
+
+            	</div><!-- end of 4th column -->
+			</div>
+		</div><!-- end of content container -->
+	</div><!-- end of page container -->
+
+</body>
+</html>
