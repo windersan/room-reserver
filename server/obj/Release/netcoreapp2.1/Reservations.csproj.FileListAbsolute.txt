@@ -1,0 +1,14 @@
+C:\Users\dsalemi\source\repos\Reservations\Reservations\bin\Release\netcoreapp2.1\Reservations.deps.json
+C:\Users\dsalemi\source\repos\Reservations\Reservations\bin\Release\netcoreapp2.1\Reservations.runtimeconfig.json
+C:\Users\dsalemi\source\repos\Reservations\Reservations\bin\Release\netcoreapp2.1\Reservations.runtimeconfig.dev.json
+C:\Users\dsalemi\source\repos\Reservations\Reservations\bin\Release\netcoreapp2.1\Reservations.dll
+C:\Users\dsalemi\source\repos\Reservations\Reservations\bin\Release\netcoreapp2.1\Reservations.pdb
+C:\Users\dsalemi\source\repos\Reservations\Reservations\obj\Release\netcoreapp2.1\Reservations.csprojAssemblyReference.cache
+C:\Users\dsalemi\source\repos\Reservations\Reservations\obj\Release\netcoreapp2.1\Reservations.csproj.CoreCompileInputs.cache
+C:\Users\dsalemi\source\repos\Reservations\Reservations\obj\Release\netcoreapp2.1\Reservations.RazorAssemblyInfo.cache
+C:\Users\dsalemi\source\repos\Reservations\Reservations\obj\Release\netcoreapp2.1\Reservations.RazorAssemblyInfo.cs
+C:\Users\dsalemi\source\repos\Reservations\Reservations\obj\Release\netcoreapp2.1\Reservations.AssemblyInfoInputs.cache
+C:\Users\dsalemi\source\repos\Reservations\Reservations\obj\Release\netcoreapp2.1\Reservations.AssemblyInfo.cs
+C:\Users\dsalemi\source\repos\Reservations\Reservations\obj\Release\netcoreapp2.1\Reservations.RazorTargetAssemblyInfo.cache
+C:\Users\dsalemi\source\repos\Reservations\Reservations\obj\Release\netcoreapp2.1\Reservations.dll
+C:\Users\dsalemi\source\repos\Reservations\Reservations\obj\Release\netcoreapp2.1\Reservations.pdb

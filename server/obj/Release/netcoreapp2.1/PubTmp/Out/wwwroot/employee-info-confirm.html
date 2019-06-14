@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DTC NOLA - 
+    A Room</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+
+    <script>
+
+        window.onload = function load() {
+
+            let inputStartDate = localStorage.getItem('inputStartDate');
+            let inputEndDate = localStorage.getItem('inputEndDate');
+            let requirement = localStorage.getItem('requirement');
+            let room = localStorage.getItem('room');
+
+            let startDate = new Date(inputStartDate);
+            let endDate = new Date(inputEndDate);
+
+            document.getElementById("room").innerHTML = room;
+            document.getElementById("inputStartDate").innerHTML = "March " + (startDate.getDate() + 1) + " to March " + (endDate.getDate() + 1);
+            document.getElementById("requirement").innerHTML = " " + requirement;
+
+        }
+
+        function myFunction() {
+            let first_name = document.getElementById("first_name").value;
+            if (first_name) localStorage.setItem("first_name", first_name);
+
+            let last_name = document.getElementById("last_name").value;
+            if (last_name) localStorage.setItem("last_name", last_name);
+
+            let employee_id = document.getElementById("employee_id").value;
+            if (employee_id) localStorage.setItem("employee_id", employee_id);
+
+            let email = document.getElementById("email").value;
+            if (email) localStorage.setItem("email", email);
+
+            let start = document.getElementById("start").value;
+            console.log(start);
+            if (start) localStorage.setItem("start", start);
+
+            let finish = document.getElementById("finish").value;
+            if (finish) localStorage.setItem("finish", finish);
+
+            let comment = document.getElementById("comment").value;
+            if (comment) localStorage.setItem("comment", comment);
+        }
+
+
+/**/</script>
+
+</head>
+<body>
+    <nav class="navbar navbar-light bg-white">
+        <a class="navbar-brand dxc-nav-logo flex-fill" href="room-req-form-14.html"><img src="./assets/dxc_logo_hz_blk_rgb.png" width="340" class="d-inline-block align-top" alt=""></a>
+   
+        <div class="d-flex flex-fill"><!--spacer--> </div>
+    </nav>
+    <div class="container-50">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-9">
+                    <span class="floor-title"><b>Reservation Info</b></span><br>
+
+                    <p id="room">Room Name</p>
+
+                    <div class="row">
+                        <div class="col">
+                            <!-- Form -->
+                            <form action="Confirmation.html" onsubmit="myFunction()" class="employee-info">
+                                <div class="form-group">
+                                    <label for="capacity" style="font-weight: bold">Name</label>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="first_name" placeholder="First Name">
+                                        </div>
+
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="last_name" placeholder="Last Name">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="capacity" style="font-weight: bold">Employee Info</label>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="employee_id" placeholder="Employee ID">
+                                        </div>
+
+                                        <div class="col">
+                                            <input type="email" class="form-control" id="email" placeholder="DXC Email">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <p><span style="font-weight: bold">Date: </span><span id="inputStartDate"></span></p>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="date" style="font-weight: bold">Time</label>
+                                            <input type="time" class="form-control" id="start" aria-describedby="timeTo" placeholder="Start">
+                                            <small id="timeTo" class="form-text text-muted">to</small>
+                                            <input type="time" class="form-control" id="finish" placeholder="End">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <p><span style="font-weight: bold">Capacity: </span>20</p>
+                                    </div>
+                                    <div class="col">
+                                        <p><span style="font-weight: bold">Room Requirement:</span><span id="requirement"></span></p>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="comment" style="font-weight :bold">Comments</label>
+                                    <textarea class="form-control" id="comment" rows="3"></textarea>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <a style="background-color: black !important" onclick="location.href='room-req-form-14.html'"
+                                           class="btn-form btn border-radius-zero">
+                                            <b style="color: #FFED00">Modify</b>
+                                        </a>
+                                    </div>
+
+                                    <div class="col">
+                                        <button class="btn-form btn border-radius-zero" type="submit"><b>Submit</b></button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                        <!-- photo verification -->
+                        <div class="col">
+                            <div class="employee-verify-photo">
+                                <p>photos</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div><!-- end column -->
+                <div class="col-3">
+                    <!-- video verification for photo -->
+                    <span class="floor-title"><b>User Validation</b></span>
+                    <div class="employee-verify-video">
+                        <p>video</p>
+                    </div>
+
+                    <button class="btn-form btn border-radius-zero" type="submit"><b>Take Photo</b></button>
+
+                </div>
+            </div>
+        </div><!-- end of content container -->
+    </div><!-- end of page container -->
+
+</body>
+</html>

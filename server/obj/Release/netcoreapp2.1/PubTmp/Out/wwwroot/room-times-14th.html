@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DTC NOLA - Reserve A Room</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+
+    <script>
+
+
+        window.onload = function load() {
+
+            let inputStartDate = localStorage.getItem('inputStartDate');
+            let inputEndDate = localStorage.getItem('inputEndDate');
+            let requirement = localStorage.getItem('requirement');
+            let capacityMin = localStorage.getItem('capacityMin');
+            let capacityMax = localStorage.getItem('capacityMax');
+
+            let startDate = new Date(inputStartDate);
+            let endDate = new Date(inputEndDate);
+
+            document.getElementById("date").innerHTML = "March " + (startDate.getDate() + 1) + " to March " + (endDate.getDate() + 1);
+
+            document.getElementById("requirement").innerHTML = requirement;
+
+            document.getElementById("capacity").innerHTML = capacityMin + " - " + capacityMax;
+
+            $('.room-title').click(function () {
+
+                let room = $(this)[0].innerText;
+
+                console.log(room);
+
+                if (room) localStorage.setItem("room", room);
+            });
+        }
+
+
+        function clickReserveRoom() {
+            location.href = "employee-info-confirm.html";
+        }
+
+
+
+/**/</script>
+
+</head>
+<body>
+    <nav class="navbar navbar-light bg-white">
+        <a class="navbar-brand dxc-nav-logo flex-fill" href="room-req-form-14.html"><img src="./assets/dxc_logo_hz_blk_rgb.png" width="340" class="d-inline-block align-top" alt=""></a>
+    
+        <div class="d-flex flex-fill"><!--spacer--> </div>
+    </nav>
+    <div class="container-50">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- floor map -->
+                <div class="col-9 floor-map-bg height-1">
+                    <div class="floor-map-bg">
+                    </div>
+                </div>
+                <!-- Time Viewer -->
+                <div class="col-3">
+                    <span class="floor-sub"><b>Reserve room on</b></span><br>
+                    <span class="floor-title"><b>Floor 14</b></span>
+
+                    <div class="row">
+                        <div class="col-sm">
+                            <p style="font-weight: bold; margin-top:50px;"><b>Date</b></p>
+                        </div>
+                        <div class="col-sm">
+                            <p style="font-weight: bold; margin-top:50px;"><b>Time</b></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <p id="date" style="margin-top: -0.8em;"></p>
+                        </div>
+                        <div class="col-sm">
+                            <p id="time" style="margin-top: -0.8em;">2:00 - 3:00</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <p style="font-weight: bold"><b>Capacity</b></p>
+                        </div>
+                        <div class="col-sm">
+                            <p style="font-weight: bold"><b>Room Requirement</b></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <p id="capacity" style="margin-top: -0.8em; margin-bottom:40px;">Capacity Input</p>
+                        </div>
+                        <div class="col-sm">
+                            <p id="requirement" style="margin-top: -0.8em; margin-bottom:40px;"></p>
+                        </div>
+                    </div>
+
+                    <span class="floor-sub"><b>Available Times</b></span><br>
+
+                    <!-- Room List -->
+                    <div class="accordion" id="room-list">
+                        <div class="card border-dark border-thick">
+                            <div class="card-header bg-transparent border-dark border-thick" id="room1">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                        <p class="room-title">1410 - Crawfish Boil - Conference</p>
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div id="collapse1" class="collapse show" aria-labelledby="room1" data-parent="#room-list">
+                                <!-- Time Slot List -->
+                                <div class="card-body room-time-block text-center">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>8:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <a href="#"><p>8:15 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <a href="#"><p>8:30 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <a href="#"><p>8:45 AM</p></a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>9:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <a href="#"><p>9:15 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <a href="#"><p>9:30 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <a href="#"><p>9:45 AM</p></a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>10:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <a href="#"><p>10:15 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <a href="#"><p>10:30 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <a href="#"><p>10:45 AM</p></a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>11:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>12:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>1:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>2:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>3:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>4:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>5:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>6:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:45 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- / Time Slot List -->
+                            </div>
+                        </div> <!-- / card -->
+                        <div class="card border-dark border-thick">
+                            <div class="card-header bg-transparent border-dark border-thick" id="room2">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                                        <p class="room-title">1411 - Gulf Oyster - Conference</p>
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div id="collapse2" class="collapse" aria-labelledby="room2" data-parent="#room-list">
+                                <!-- Time Slot List -->
+                                <div class="card-body room-time-block text-center">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>8:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>9:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>10:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>11:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>12:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>1:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>2:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>3:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>4:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>5:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>6:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:45 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- / Time Slot List -->
+                            </div>
+                        </div> <!-- / card -->
+                        <div class="card border-dark border-thick">
+                            <div class="card-header bg-transparent border-dark border-thick" id="room3">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
+                                        <p class="room-title">1412 - Remoulade - Conference</p>
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div id="collapse3" class="collapse" aria-labelledby="room3" data-parent="#room-list">
+                                <!-- Time Slot List -->
+                                <div class="card-body room-time-block text-center">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>8:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>9:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>10:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>11:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>12:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>1:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>2:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>3:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>4:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>5:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>6:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:45 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- / Time Slot List -->
+                            </div>
+                        </div> <!-- / card -->
+                        <div class="card border-dark border-thick">
+                            <div class="card-header bg-transparent border-dark border-thick" id="room4">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
+                                        <p class="room-title">1413 - Huddle</p>
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div id="collapse4" class="collapse" aria-labelledby="room4" data-parent="#room-list">
+                                <!-- Time Slot List -->
+                                <div class="card-body room-time-block text-center">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>8:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>9:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>10:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>11:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>12:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>1:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>2:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>3:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>4:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>5:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>6:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:45 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- / Time Slot List -->
+                            </div>
+                        </div> <!-- / card -->
+                        <div class="card border-dark border-thick">
+                            <div class="card-header bg-transparent border-dark border-thick" id="room5">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="true" aria-controls="collapse5">
+                                        <p class="room-title">1414 - Muffuletta - Conference</p>
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div id="collapse5" class="collapse" aria-labelledby="room5" data-parent="#room-list">
+                                <!-- Time Slot List -->
+                                <div class="card-body room-time-block text-center">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>8:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>9:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>10:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>11:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>12:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>1:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>2:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>3:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>4:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>5:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>6:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:45 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- / Time Slot List -->
+                            </div>
+                        </div> <!-- / card -->
+                        <div class="card border-dark border-thick">
+                            <div class="card-header bg-transparent border-dark border-thick" id="room6">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="true" aria-controls="collapse6">
+                                        <p class="room-title">1415 - Huddle</p>
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div id="collapse6" class="collapse" aria-labelledby="room6" data-parent="#room-list">
+                                <!-- Time Slot List -->
+                                <div class="card-body room-time-block text-center">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>8:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>9:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>10:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>11:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>12:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>1:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>2:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>3:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>4:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>5:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>6:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:45 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- / Time Slot List -->
+                            </div>
+                        </div> <!-- / card -->
+                        <div class="card border-dark border-thick">
+                            <div class="card-header bg-transparent border-dark border-thick" id="room7">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse7" aria-expanded="true" aria-controls="collapse7">
+                                        <p class="room-title">1416 - Po'boy - Conference</p>
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div id="collapse7" class="collapse" aria-labelledby="room7" data-parent="#room-list">
+                                <!-- Time Slot List -->
+                                <div class="card-body room-time-block text-center">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>8:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>9:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>10:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>11:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>12:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>1:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>2:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>3:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>4:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>5:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>6:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:45 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- / Time Slot List -->
+                            </div>
+                        </div> <!-- / card -->
+                        <div class="card border-dark border-thick">
+                            <div class="card-header bg-transparent border-dark border-thick" id="room8">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse8" aria-expanded="true" aria-controls="collapse8">
+                                        <p class="room-title">1417 - Brass - Project</p>
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div id="collapse8" class="collapse" aria-labelledby="room8" data-parent="#room-list">
+                                <!-- Time Slot List -->
+                                <div class="card-body room-time-block text-center">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>8:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>9:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>10:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>11:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>12:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>1:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>2:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>3:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>4:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>5:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>6:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:45 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- / Time Slot List -->
+                            </div>
+                        </div> <!-- / card -->
+                        <div class="card border-dark border-thick">
+                            <div class="card-header bg-transparent border-dark border-thick" id="room9">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse9" aria-expanded="true" aria-controls="collapse9">
+                                        <p class="room-title">1420 - Huddle</p>
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div id="collapse9" class="collapse" aria-labelledby="room9" data-parent="#room-list">
+                                <!-- Time Slot List -->
+                                <div class="card-body room-time-block text-center">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>8:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>9:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>10:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>11:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>12:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>1:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>2:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>3:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>4:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>5:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>6:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:45 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- / Time Slot List -->
+                            </div>
+                        </div> <!-- / card -->
+                        <div class="card border-dark border-thick">
+                            <div class="card-header bg-transparent border-dark border-thick" id="room10">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse10" aria-expanded="true" aria-controls="collapse10">
+                                        <p class="room-title">1424 - Praline - Conference</p>
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div id="collapse10" class="collapse" aria-labelledby="room10" data-parent="#room-list">
+                                <!-- Time Slot List -->
+                                <div class="card-body room-time-block text-center">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>8:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>8:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>9:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>9:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>10:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>10:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>11:00 AM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:15 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:30 AM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>11:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>12:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>12:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>1:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>1:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>2:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>2:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>3:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>3:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>4:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>4:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>5:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>5:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <a href="#"><p>6:00 PM</p></a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:15 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:30 PM</p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p>6:45 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- / Time Slot List -->
+                            </div>
+                        </div> <!-- / card -->
+                    </div>
+                    <!-- / Room List -->
+
+                    <div style="margin-top: 1em">
+                        <button class="btn-form btn border-radius-zero" type="submit" onclick="clickReserveRoom()"><b>Reserve Room</b></button>
+                    </div>
+                </div><!-- end of 4th column -->
+            </div>
+        </div><!-- end of content container -->
+    </div><!-- end of page container -->
+
+
+
+
+
+</body>
+</html>
